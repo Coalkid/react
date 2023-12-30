@@ -24,3 +24,16 @@ jobs:
       run: |
         docker build -t dockerzwol.azurecr.io/myreact:latest .
         docker push dockerzwol.azurecr.io/myreact:latest
+        
+    - name: SSH into VM and update Docker Compose
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.VM_SSH_HOST }}
+        username: ${{ secrets.VM_SSH_USER }}
+        key: ${{ secrets.VM_SSH_KEY }}
+        port: ${{ secrets.VM_SSH_PORT }}
+        script: |
+          cd /home/coalkid/docker
+          docker-compose down
+          docker-compose pull
+          docker-compose up -d
