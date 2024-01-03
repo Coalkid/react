@@ -38,7 +38,7 @@ jobs:
         key: ${{ secrets.VM_SSH_KEY }}
         port: ${{ secrets.VM_SSH_PORT }}
         source: ./docker-compose.yaml
-        target: /home/coalkid/docker/docker-compose.yaml
+        target: /home/coalkid/docker
         
     - name: SSH into VM and update Docker Compose
       uses: appleboy/ssh-action@master
