@@ -24,7 +24,12 @@ jobs:
       run: |
         docker build -t dockerzwol.azurecr.io/myreact:latest .
         docker push dockerzwol.azurecr.io/myreact:latest
+        
+  
+  ssh-actions:
+    runs-on: ubuntu-latest
    
+    steps:
     - name: Copy Docker Compose file to VM
       uses: appleboy/scp-action@master
       with:
