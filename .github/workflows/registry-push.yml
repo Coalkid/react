@@ -33,7 +33,10 @@ jobs:
     steps:
 
     - name: check dir
-      run: ls -al .
+      run: |
+        ls -al .
+        pwd
+          
     
     - name: Copy Docker Compose file to VM
       uses: appleboy/scp-action@master
