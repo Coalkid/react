@@ -31,7 +31,7 @@ jobs:
       run: |
         docker build -t dockerzwol.azurecr.io/myreact:$TAG .
         docker push dockerzwol.azurecr.io/myreact:$TAG
-
+        docker push dockerzwol.azurecr.io/myreact:latest
 
   ssh-actions:
     needs: build-and-push
