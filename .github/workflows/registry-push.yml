@@ -24,7 +24,7 @@ jobs:
       run: echo "TAG=$(date +"%Y%m%d%H%M%S")" >> $GITHUB_ENV
 
     - name: Display TAG variable
-      run: echo "Current TAG: $TAG"
+      run: echo "Current TAG - $TAG"
 
 
     - name: Build and push Docker image
