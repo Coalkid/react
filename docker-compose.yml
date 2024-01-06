@@ -6,3 +6,5 @@ services:
     restart: always
     ports:
       - "80:80"
+    volumes:
+      - /home/coalkid/nginx-log:/var/log/nginx
