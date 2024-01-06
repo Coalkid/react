@@ -20,11 +20,17 @@ jobs:
         username: ${{ secrets.AZURE_ACR_USERNAME }}
         password: ${{ secrets.AZURE_ACR_PASSWORD }}
 
+    - name: Set TAG variable
+      run: echo "TAG=$(date +"%Y%m%d%H%M%S")" >> $GITHUB_ENV
+
+    - name: Display TAG variable
+      run: echo "Current TAG: $TAG"
+
+
     - name: Build and push Docker image
       run: |
-        echo "TAG=$(date +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_ENV
-        docker build -t dockerzwol.azurecr.io/myreact:${{ env.TAG }} .
-        docker push dockerzwol.azurecr.io/myreact:${{ env.TAG }}
+        docker build -t dockerzwol.azurecr.io/myreact:$TAG .
+        docker push dockerzwol.azurecr.io/myreact:$TAG
 
 
   ssh-actions:
